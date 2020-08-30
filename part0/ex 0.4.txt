@@ -1,0 +1,42 @@
+title Fullstack Open 0.4
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note
+
+note over server:
+server takes input from form
+and appends the submission to
+the notes data
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/notes
+server->browser: HTML-Code
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.css
+server->browser: main.css Stylesheet
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/main.js
+server->browser: main.js JavaScript File
+
+note over browser:
+browser receives the js code
+and executes the script, which
+requests JSON data from the server
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/data.json
+server->browser: data.json
+
+note over browser:
+browser continues executing
+script using the JSON data
+to populate the notes element,
+including the new note
+end note
+
+browser->server: HTTP GET https://fullstack-exampleapp.herokuapp.com/favicon.ico
+
+note over server:
+a request is made for favicon.ico
+and the file is not found
+end note
+
+server->browser: favicon.ico 404 Status
+
